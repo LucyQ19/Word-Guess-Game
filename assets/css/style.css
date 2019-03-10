@@ -1,0 +1,17 @@
+body {
+    font-size: 24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+.jumbotron {
+    background-image: url('../images/coffee-beans.jpg');
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+}
+
+.gamePlay {
+    text-align: center;
+}
