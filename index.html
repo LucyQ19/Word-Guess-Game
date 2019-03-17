@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Word Guess Game</title>
+    <title>Friends | Word Guess Game</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,28 +13,29 @@
 
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3 text-center">Word Guess Game</h1>
-        </div>
-    </div>
-
+    <div id="mainTitle" class="jumbotron jumbotron-fluid"></div>
+    <br>
+    <br>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
-
+          <div>
+              <img id="image" src="assets/images/FriendsOpening.gif" alt="Friends TV Show">
+          </div>
         </div>
         <div class="col-md-6">
           <div class="game-play">
               <p>Press Any Key to Get Started!</p>
-              <p>Wins:</p>
-              <p id="totalWins"></p>
               <p>Current Word:</p>
               <p id="currentWord"></p>
+              <p>Letters Already Guessed:</p>
+              <p id="guessedLetters"></p>
               <p>Number of Guesses Remaining:</p>
               <p id="remainingGuesses"></p>
-              <p>Letters Already Guessed</p>
-              <p id="guessedLetters"></p>
+              <p>Wins:</p>
+              <p id="totalWins"></p>
+              <p>Losses:</p>
+              <p id="totalLosses"></p>
           </div>
         </div>
       </div>

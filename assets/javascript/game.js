@@ -1,107 +1,122 @@
-//Create an array of words
+//Global Variables
+var wordList = ["rachel", "monica", "phoebe", "ross", "chandler", "joey", "gunther", "janice", "marcel", "ursula" ];
 
-var WordList = [
-    "americano",
-    "cappuccino",
-    "coffee",
-    "espresso",
-    "latte",
-    "macchiato",
-    "mocha"
-];
+var randomWord = "";
+var lettersArray = [];
+var wrongGuess = [];
 
-const maxTries = 10;
-
-var guessedLetters = [];
-var currentWord = "";
-var guessingWord = [];
-var remainingGuesses = 0;
-var gameBegan = false;
-var hasFinished = false;
+//Count Variables
+var guessesRemaining = 10;
 var wins = 0;
+var losses = 0;
 
-function resetGame() {
-    remainingGuesses = maxTries;
-    gameBegan = false;
+//Main Game Loop
 
-    currentWord = Math.floor(Math.random() * (wordList.length));
-
-    guessedLetters = [];
-    guessedWord = [];
-
-    for (var i = 0; i < wordList[currentWord].length; i++) {
-    guessingWord.push("_");
+function startGame() {
+    randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    for (var i = 0; i < randomWord.length; i++) {
+        lettersArray[i] = "_";
     }
 
-    updateDisplay();
+    document.getElementById("currentWord").innerHTML = " " + lettersArray.join(" ");
 };
 
-function updateDisplay() {
-    document.getElementById("totalWins").innerText = wins;
-    document.getElementById("currentWord").innerText = "";
-    
-    for (var i = 0; i < guessingWord.length; i++) {
-       document.getElementById("currentWord").innerText += guessingWord[i];
+function gif(){
+
+    if (randomWord === "rachel") {
+        document.getElementById("image").src = "assets/images/rachelGreen.gif";
     }
 
-    document.getElementById("remainingGuesses").innerText = remainingGuesses;
-    document.getElementById("guessedLetters").innerText = guessedLetters;
-
-    if(remainingGuesses <= 0) {
-        hasFinished = true;
+    else if (randomWord === "monica") {
+        document.getElementById("image").src = "assets/images/monicaGeller.gif";
     }
+
+    else if (randomWord === "phoebe") {
+        document.getElementById("image").src = "assets/images/phoebeBuffay.gif";
+    }
+
+    else if (randomWord === "ross") {
+        document.getElementById("image").src = "assets/images/rossGeller.gif";
+    }
+
+    else if (randomWord === "chandler") {
+        document.getElementById("image").src = "assets/images/chandlerBing.gif";
+    }
+
+    else if (randomWord === "joey") {
+        document.getElementById("image").src = "assets/images/joeyTribbiani.gif";
+    }
+
+    else if (randomWord === "gunther") {
+        document.getElementById("image").src = "assets/images/guntherFriend.gif";
+    }
+
+    else if (randomWord === "janice") {
+        document.getElementById("image").src = "assets/images/janiceGoralnik.gif";
+    }
+
+    else if (randomWord === "marcel") {
+        document.getElementById("image").src = "assets/images/marcelMonkey.gif";
+    }
+
+    else if (randomWord === "ursula") {
+        document.getElementById("image").src = "assets/images/ursulaBuffay.gif";
+    }
+
 };
 
-document.onkeydown = function(event) {
-    if(hasFinished) {
-        resetGame();
-        hasFinished = false;
-    } else {
-       if (event.keyCode >= 65 && event.keyCode <= 90) {
-        makeGuess(event.key.toUpperCase());
-       }
-    }
+//Reset Function
+function reset() {
+    lettersArray = [];
+    wrongGuess = [];
+    guessesRemaining = 10;
+    startGame()
 };
 
-function makeGuess(letter) {
-    if (remainingGuesses > 0) {
-        if (!gameBegan) {
-            gameStarted = true;
+//Check Letters
+function checkLetters (letter) {
+    var letterInWord = false;
+
+    for (var i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] == letter) {
+            letterInWord = true;
         }
-        if (guessedLetters.indexOf(letter) === -1) {
-            guessedLetters.push(letter);
-            evaluateGuess(letter);
+    }
+    if (letterInWord) {
+        for (var i = 0; i < randomWord.length; i++) {
+            if (randomWord[i] === letter) {
+                lettersArray[i] = letter;
+            }
         }
+    }
+
+    else if (wrongGuess.indexOf(letter) === - 1) {
+        wrongGuess.push(letter);
+        guessesRemaining--;
     }
 };
 
-function evaluateGuess(letter) {
-    var positions = [];
-
-    for (var i = 0; i < wordList[currentWord].length; i++) {
-        if(wordList[currentWord][i] === letter) {
-            positions.push(i);
-        }
-    }
-
-    if(positions.length <= 0) {
-        remainingGuesses--;
-    } else {
-        for (var i = 0; i < positions.length; i++) {
-            guessingWord[positions[i]] = letter;
-        }
-    }
-};
-
-function checkWin() {
-    if(guessingWord.indexOf("_") === -1) {
+function completeGame() {
+    if (lettersArray.indexOf("_") == -1) {
         wins++;
-        hasFinished = true;
+        reset();
+        document.getElementById("totalWins").innerHTML = wins;
+
+    } else if (guessesRemaining === 0) {
+        losses++;
+        reset();
+        document.getElementById("totalLosses").innerHTML = losses;
     }
+
+    document.getElementById("currentWord").innerHTML = " " + lettersArray.join(" ");
+    document.getElementById("remainingGuesses").innerHTML = guessesRemaining;
 };
 
-function checkLoss() {
-    if(remainingGuesses <= 0) {
-        hasFinished = true;
-    }
+startGame();
+
+document.onkeyup = function (event) {
+    var guesses = event.key;
+    checkLetters(guesses);
+    completeGame();
+    document.getElementById("guessedLetters").innerHTML = " " + wrongGuess.join(" ");
 };

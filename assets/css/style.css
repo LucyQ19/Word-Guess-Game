@@ -1,21 +1,24 @@
+html,
 body {
-    background-image: url('../images/black-dog-coffee-kansas-city-social.jpg');
+    height: 100%;
+}
+
+body {
+    background-image: url('..//images/FriendsNewYork.jpg');
     background-size: cover;
-    font-size: 24px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold;
+    background-repeat: no-repeat;
     color: #ffffff;
 }
 
 .jumbotron {
-    background-image: url('../images/coffee-beans.jpg');
-    background-size: cover;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #ffffff;
+    background-image: url('..//images/FriendsLogo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
 }
 
-.game-play {
-    background-color: #fffffd;
-    color: #8b4513;
-    text-align: center;
+#image {
+    margin: 20px 80px;
+    width: 400px;
+    height: 400px;
 }
