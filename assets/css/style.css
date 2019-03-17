@@ -1,3 +1,8 @@
+@font-face {
+    font-family: gabrwffr;
+    src: url(../GABRWFFR.TTF);
+}
+
 html,
 body {
     height: 100%;
@@ -7,7 +12,10 @@ body {
     background-image: url('..//images/FriendsNewYork.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    color: #ffffff;
+    color: #fab803;
+    font-family: gabrwffr;
+    font-size: 24px;
+    text-align: center;
 }
 
 .jumbotron {
@@ -21,4 +29,8 @@ body {
     margin: 20px 80px;
     width: 400px;
     height: 400px;
+}
+
+#gamePlay {
+    padding: 10px;
 }
