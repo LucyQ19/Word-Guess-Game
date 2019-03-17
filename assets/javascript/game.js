@@ -21,45 +21,57 @@ function startGame() {
     document.getElementById("currentWord").innerHTML = " " + lettersArray.join(" ");
 };
 
-function gif(){
+var themeSong = document.getElementById("themeSong");
+
+function audioVisuals(){
 
     if (randomWord === "rachel") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/rachelGreen.gif";
     }
 
     else if (randomWord === "monica") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/monicaGeller.gif";
     }
 
     else if (randomWord === "phoebe") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/phoebeBuffay.gif";
     }
 
     else if (randomWord === "ross") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/rossGeller.gif";
     }
 
     else if (randomWord === "chandler") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/chandlerBing.gif";
     }
 
     else if (randomWord === "joey") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/joeyTribbiani.gif";
     }
 
     else if (randomWord === "gunther") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/guntherFriend.gif";
     }
 
     else if (randomWord === "janice") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/janiceGoralnik.gif";
     }
 
     else if (randomWord === "marcel") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/marcelMonkey.gif";
     }
 
     else if (randomWord === "ursula") {
+        themeSong.play();
         document.getElementById("image").src = "assets/images/ursulaBuffay.gif";
     }
 
@@ -74,7 +86,7 @@ function reset() {
 };
 
 //Check Letters
-function checkLetters (letter) {
+function evaluateLetters (letter) {
     var letterInWord = false;
 
     for (var i = 0; i < randomWord.length; i++) {
@@ -99,6 +111,7 @@ function checkLetters (letter) {
 function completeGame() {
     if (lettersArray.indexOf("_") == -1) {
         wins++;
+        audioVisuals();
         reset();
         document.getElementById("totalWins").innerHTML = wins;
 
@@ -116,7 +129,7 @@ startGame();
 
 document.onkeyup = function (event) {
     var guesses = event.key;
-    checkLetters(guesses);
+    evaluateLetters(guesses);
     completeGame();
     document.getElementById("guessedLetters").innerHTML = " " + wrongGuess.join(" ");
 };
