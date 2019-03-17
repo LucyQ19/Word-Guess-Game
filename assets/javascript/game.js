@@ -118,6 +118,7 @@ function completeGame() {
     } else if (guessesRemaining === 0) {
         losses++;
         reset();
+        document.getElementById("image").src = "assets/images/youLose.gif";
         document.getElementById("totalLosses").innerHTML = losses;
     }
 
