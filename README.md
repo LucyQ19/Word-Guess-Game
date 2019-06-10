@@ -4,10 +4,11 @@
 
 ### About my App:
 
-This app is a simplified version of hangman made out of javascript.  It uses an on-key event listener that keeps track of the letters the player guesses on the keyboard.  The player selects any key on the keyboard to start playing.
+This app is a simplified version of hangman made out of javascript.  It uses an on-key event listener that keeps track of the letters the player guesses on the keyboard.
 
 ### How My App Works:
 
+* First of all, the player selects any key on the keyboard to start playing.
 * The player guesses letters to determine the word, based on the length of underscores displayed on the screen.
 * If the player guesses a letter correctly, the letter goes above one of the underscores.
 * If the player does not guess correctly, the letter goes under Letters Already Guessed, and the Number of Guesses Remaining decreases by one.
