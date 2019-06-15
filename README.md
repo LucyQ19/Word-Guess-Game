@@ -18,7 +18,7 @@ This app is a simplified version of hangman made out of javascript.  It uses an 
 ### Technologies Used for this App:
 
 * Bootstrap, and
-* Javascript
+* JavaScript
 
 ### Thank you for visiting my GitHub! 
 
